@@ -1,0 +1,340 @@
+﻿<Window x:Class="Dexter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Dexter"
+        Height="660"
+        Width="1040"
+        MinHeight="660"
+        MinWidth="1040"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Foreground="#F3F4F6"
+        Icon="Assets/dexter.ico">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#09111D"/>
+        <SolidColorBrush x:Key="TitleBarBrush" Color="#0D1727"/>
+        <SolidColorBrush x:Key="CardBrush" Color="#101A2B"/>
+        <SolidColorBrush x:Key="CardBrushAlt" Color="#15233A"/>
+        <SolidColorBrush x:Key="BorderBrushSoft" Color="#28405F"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="#68AEFF"/>
+        <SolidColorBrush x:Key="AccentBrushSoft" Color="#18355D"/>
+        <SolidColorBrush x:Key="AccentBrushHover" Color="#204777"/>
+        <SolidColorBrush x:Key="AccentBrushPressed" Color="#295A94"/>
+        <SolidColorBrush x:Key="TextPrimaryBrush" Color="#F3F4F6"/>
+        <SolidColorBrush x:Key="TextMutedBrush" Color="#A9B6CB"/>
+        <SolidColorBrush x:Key="SurfaceBrush" Color="#0B1422"/>
+        <SolidColorBrush x:Key="HoverBrush" Color="#192A43"/>
+        <SolidColorBrush x:Key="PressedBrush" Color="#243753"/>
+
+        <DropShadowEffect x:Key="WindowShadowEffect"
+                          BlurRadius="24"
+                          ShadowDepth="0"
+                          Opacity="0.35"
+                          Color="#000000"/>
+
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="18"/>
+            <Setter Property="Padding" Value="22"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/>
+            <Setter Property="Background" Value="{StaticResource CardBrush}"/>
+        </Style>
+
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{StaticResource AccentBrushSoft}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="12">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="2"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentBrushHover}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentBrushPressed}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+            <Setter Property="Background" Value="#142238"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="12">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="2"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource HoverBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource PressedBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="WindowButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimaryBrush}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource HoverBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource PressedBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border Margin="12"
+            Background="{StaticResource WindowBackgroundBrush}"
+            BorderBrush="{StaticResource BorderBrushSoft}"
+            BorderThickness="1"
+            CornerRadius="22"
+            Effect="{StaticResource WindowShadowEffect}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="52"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Background="{StaticResource TitleBarBrush}"
+                    CornerRadius="22,22,0,0"
+                    BorderBrush="{StaticResource BorderBrushSoft}"
+                    BorderThickness="0,0,0,1"
+                    MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <Grid Margin="16,0,12,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center">
+                        <Border Width="30"
+                                Height="30"
+                                CornerRadius="10"
+                                Background="{StaticResource AccentBrushSoft}"
+                                BorderBrush="{StaticResource AccentBrush}"
+                                BorderThickness="1">
+                            <Grid>
+                                <Image Source="pack://application:,,,/Assets/dexter.ico"
+                                       Width="18"
+                                       Height="18"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <StackPanel Margin="10,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Dexter"
+                                       FontSize="15"
+                                       FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Text="Desktop assistant"
+                                       FontSize="11"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center">
+                        <Button Style="{StaticResource WindowButtonStyle}"
+                                Click="MinimizeButton_Click"
+                                Content="—"/>
+                        <Button Style="{StaticResource WindowButtonStyle}"
+                                Margin="6,0,0,0"
+                                Click="CloseButton_Click"
+                                Content="✕"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1" Margin="24">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                        Background="{StaticResource CardBrushAlt}"
+                        BorderBrush="{StaticResource BorderBrushSoft}"
+                        BorderThickness="1"
+                        CornerRadius="20"
+                        Padding="26">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="86"/>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Width="78"
+                                Height="78"
+                                CornerRadius="18"
+                                Background="{StaticResource AccentBrushSoft}"
+                                BorderBrush="{StaticResource AccentBrush}"
+                                BorderThickness="1.2"
+                                VerticalAlignment="Center">
+                            <Grid>
+                                <Image Source="pack://application:,,,/Assets/dexter.ico"
+                                       Width="46"
+                                       Height="46"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                            <TextBlock Text="Dexter"
+                                       FontSize="36"
+                                       FontWeight="Bold"/>
+                            <TextBlock Text="Voice launcher with live config editing"
+                                       Margin="0,6,0,0"
+                                       FontSize="15"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="280"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource CardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Status"
+                                       FontSize="19"
+                                       FontWeight="SemiBold"
+                                       Margin="0,0,0,14"/>
+
+                            <Border Background="{StaticResource SurfaceBrush}"
+                                    BorderBrush="{StaticResource BorderBrushSoft}"
+                                    BorderThickness="1"
+                                    CornerRadius="12"
+                                    Padding="16"
+                                    MinHeight="92">
+                                <TextBlock x:Name="StatusTextBlock"
+                                           Text="Dexter is starting..."
+                                           FontSize="15"
+                                           Foreground="{StaticResource TextPrimaryBrush}"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="2" Style="{StaticResource CardStyle}">
+                        <StackPanel>
+                            <TextBlock Text="Actions"
+                                       FontSize="19"
+                                       FontWeight="SemiBold"
+                                       Margin="0,0,0,14"/>
+
+                            <Button Content="Open Config Editor"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Margin="0,0,0,12"
+                                    Click="OpenConfigEditorButton_Click"/>
+
+                            <Button Content="Reload Config"
+                                    Style="{StaticResource SecondaryButtonStyle}"
+                                    Click="ReloadConfigFromMainButton_Click"/>
+
+                            <TextBlock Margin="0,16,0,0"
+                                       Text="Use the popout editor to update apps, aliases, launch targets, and process names."
+                                       TextWrapping="Wrap"
+                                       FontSize="13"
+                                       Foreground="{StaticResource TextMutedBrush}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Border Grid.Row="4" Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Overview"
+                                   FontSize="19"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,14"/>
+
+                        <TextBlock Text="Dexter stays in the tray, listens for wake commands, and launches or closes apps from your config."
+                                   FontSize="14"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Margin="0,12,0,0"
+                                   Text="The config editor lives in a separate window so the main app stays clean and focused."
+                                   FontSize="14"
+                                   Foreground="{StaticResource TextMutedBrush}"
+                                   TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

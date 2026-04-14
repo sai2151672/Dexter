@@ -1,0 +1,94 @@
+{
+  "apps": [
+    {
+      "name": "chrome",
+      "aliases": [
+        "chrome",
+        "google chrome",
+        "browser",
+        "google"
+      ],
+      "launchTarget": "chrome.exe",
+      "arguments": "",
+      "processNames": [
+        "chrome"
+      ]
+    },
+    {
+      "name": "calculator",
+      "aliases": [
+        "calculator",
+        "calc"
+      ],
+      "launchTarget": "calc.exe",
+      "arguments": "",
+      "processNames": [
+        "CalculatorApp",
+        "calculator"
+      ]
+    },
+    {
+      "name": "notepad",
+      "aliases": [
+        "notepad"
+      ],
+      "launchTarget": "notepad.exe",
+      "arguments": "",
+      "processNames": [
+        "notepad"
+      ]
+    },
+    {
+      "name": "paint",
+      "aliases": [
+        "paint",
+        "mspaint"
+      ],
+      "launchTarget": "mspaint.exe",
+      "arguments": "",
+      "processNames": [
+        "mspaint"
+      ]
+    },
+    {
+      "name": "file explorer",
+      "aliases": [
+        "file explorer",
+        "explorer",
+        "my files",
+        "files"
+      ],
+      "launchTarget": "explorer.exe",
+      "arguments": "",
+      "processNames": [
+        "explorer"
+      ]
+    },
+    {
+      "name": "discord",
+      "aliases": [
+        "discord"
+      ],
+      "launchTarget": "C:\\Users\\kotes\\AppData\\Local\\Discord\\Update.exe",
+      "arguments": "--processStart Discord.exe",
+      "processNames": [
+        "Discord"
+      ]
+    },
+    {
+      "name": "youtube",
+      "aliases": [
+        "youtube",
+        "you tube",
+        "yt"
+      ],
+      "launchTarget": "https://www.youtube.com",
+      "arguments": "",
+      "processNames": [
+        "chrome",
+        "msedge",
+        "firefox"
+      ]
+    }
+  ]
+}
