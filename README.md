@@ -40,7 +40,7 @@ If you find Dexter useful or interesting, consider supporting its development. A
 
 You can support this project through platforms such as:
 
-* Buy Me a Coffee: [https://www.buymeacoffee.com](https://www.buymeacoffee.com)
+Ko-Fi: ko-fi.com/saidasari
 
 ---
 
